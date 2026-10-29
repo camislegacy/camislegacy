@@ -762,7 +762,7 @@
             const parche = document.getElementById('input-parche').value.trim();
             const precioFinal = document.getElementById('modal-precio-total').innerText;
 
-            // URL base limpia y correcta
+            // URL base fija y correcta para GitHub Pages
             const baseUrl = "https://camislegacy.github.io/camislegacy/";
 
             let mensaje = `Hola CAMISLEGACY! Quiero confirmar este pedido:\n\n`;
@@ -785,7 +785,7 @@
             mensaje += `📦 *Envío:* Gratuito\n`;
             mensaje += `💰 *TOTAL A PAGAR:* ${precioFinal}`;
 
-            const url = `https://wa.me/${34627658083}?text=${encodeURIComponent(mensaje)}`;
+            const url = `https://wa.me/${TELEFONO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
             window.open(url, '_blank');
             cerrarModal();
         }
