@@ -908,9 +908,7 @@
             mensaje += `⚽ *Producto:* ${productoSeleccionado.titulo}\n`;
             mensaje += `🏷️ *Tipo:* ${productoSeleccionado.tipoTexto}\n`;
             mensaje += `📏 *Talla:* ${tallaNombre}\n`;
-            mensaje += `🖼️ *Foto:* ${window.location.origin}/${productoSeleccionado.imagen}\n`;
-
-            if (llevaDorsal) {
+            mensaje += `🖼️ *Foto:* ${baseUrl}imagenes/${productoSeleccionado.imagen}\n`;            if (llevaDorsal) {
                 mensaje += `🔟 *Personalización:* Sí (+3€)\n`;
                 if (nombre) mensaje += `   - *Nombre:* ${nombre.toUpperCase()}\n`;
                 if (numero) mensaje += `   - *Número:* ${numero.toUpperCase()}\n`;
