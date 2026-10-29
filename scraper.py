@@ -9,15 +9,29 @@ from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
 # ==========================================
-# 1. AUTO-LIMPIEZA DE ARCHIVOS
+# 1. CARGA DE PRODUCTOS EXISTENTES (EVITA BORRAR LO ANTERIOR)
 # ==========================================
-print("[1/4] Limpiando archivos e imágenes antiguas...")
-if os.path.exists('imagenes'):
-    shutil.rmtree('imagenes')
-os.makedirs('imagenes')
+print("[1/4] Verificando catálogo existente para fusionar sin duplicados...")
+if not os.path.exists('imagenes'):
+    os.makedirs('imagenes')
+
+productos_existentes = []
+urls_existentes = set()
+titulos_existentes = set()
 
 if os.path.exists('productos.json'):
-    os.remove('productos.json')
+    try:
+        with open('productos.json', 'r', encoding='utf-8') as f:
+            productos_existentes = json.load(f)
+            for p in productos_existentes:
+                urls_existentes.add(p.get("url_yupoo"))
+                titulos_existentes.add(p.get("titulo", "").strip().lower())
+        print(f"[+] Se han cargado {len(productos_existentes)} productos previos en la memoria.")
+    except Exception as e:
+        print(f"[!] No se pudo leer el archivo productos.json anterior: {e}")
+
+# Determinar el siguiente ID disponible para no pisar los contadores anteriores
+next_id = max([p.get("id", 0) for p in productos_existentes], default=0) + 1
 
 # ==========================================
 # 2. CONFIGURACIÓN DE CONEXIONES Y SESIÓN
@@ -52,11 +66,10 @@ def es_equipacion_valida(titulo):
 # ==========================================
 # 3. EXTRAER TODAS LAS RUTAS DE CATEGORÍAS Y COLECCIONES
 # ==========================================
-print("[2/4] Buscando todas las secciones, subcategorías y colecciones de Yupoo...")
+print("[2/4] Buscando secciones y colecciones nuevas en Yupoo...")
 
 secciones_a_escanear = set()
 
-# A) Recoger todas las URLs de /categories y /collections
 for endpoint in ["/categories", "/collections"]:
     try:
         r = session.get(base_url + endpoint, timeout=10)
@@ -72,7 +85,6 @@ for endpoint in ["/categories", "/collections"]:
 
 print(f"[+] Se han descubierto {len(secciones_a_escanear)} subcategorías internas.")
 
-# B) Función para extraer los álbumes de una URL específica
 def extraer_albumes_de_pagina(url):
     try:
         r = session.get(url, timeout=10)
@@ -113,12 +125,12 @@ def extraer_albumes_de_pagina(url):
 # ==========================================
 # 4. ESCANEO DINÁMICO E INFINITO DE PÁGINAS
 # ==========================================
-print("[3/4] Rastreando páginas ilimitadas del catálogo principal y subsecciones...")
+print("[3/4] Rastreando el catálogo para incorporar novedades...")
 
-albumes_totales = []
-urls_procesadas = set()
+albumes_nuevos_detectados = []
+urls_procesadas_sesion = set()
 
-# 1. Escaneo dinámico del feed general (/albums?page=X) hasta que no haya más productos
+# 1. Escaneo dinámico del feed general
 pagina = 1
 vacias_seguidas = 0
 
@@ -135,20 +147,21 @@ while True:
         vacias_seguidas = 0
         nuevos = 0
         for href, titulo, img_src in items:
-            if href not in urls_procesadas:
-                urls_procesadas.add(href)
-                albumes_totales.append({
+            # Comprobamos que no esté ya en la sesión ni en el json antiguo guardado
+            if href not in urls_existentes and href not in urls_procesadas_sesion and titulo.lower() not in titulos_existentes:
+                urls_procesadas_sesion.add(href)
+                albumes_nuevos_detectados.append({
                     "titulo": titulo,
                     "imagen_url": img_src,
                     "url_yupoo": href
                 })
                 nuevos += 1
-        print(f" -> Catálogo general - Página {pagina}: {nuevos} camisetas encontradas (Total: {len(albumes_totales)})")
+        print(f" -> Catálogo general - Página {pagina}: {nuevos} camisetas nuevas detectadas.")
 
     pagina += 1
 
-# 2. Escaneo profundo paginado dentro de cada subcategoría descubierta
-print("[+] Escaneando páginas internas dentro de cada categoría...")
+# 2. Escaneo profundo en subcategorías
+print("[+] Comprobando novedades dentro de cada subcategoría...")
 for idx, sec_url in enumerate(secciones_a_escanear, 1):
     pag_sec = 1
     while True:
@@ -159,9 +172,9 @@ for idx, sec_url in enumerate(secciones_a_escanear, 1):
             break
 
         for href, titulo, img_src in items_sec:
-            if href not in urls_procesadas:
-                urls_procesadas.add(href)
-                albumes_totales.append({
+            if href not in urls_existentes and href not in urls_procesadas_sesion and titulo.lower() not in titulos_existentes:
+                urls_procesadas_sesion.add(href)
+                albumes_nuevos_detectados.append({
                     "titulo": titulo,
                     "imagen_url": img_src,
                     "url_yupoo": href
@@ -169,13 +182,13 @@ for idx, sec_url in enumerate(secciones_a_escanear, 1):
 
         pag_sec += 1
 
-print(f"\n[+] ¡Rastreo exhaustivo completado! Se han localizado {len(albumes_totales)} equipaciones únicas de fútbol.")
-print("[4/4] DESCARGA MÁXIMA VELOCIDAD: Procesando imágenes con 50 hilos en paralelo...")
+print(f"\n[+] ¡Rastreo completado! Se han encontrado {len(albumes_nuevos_detectados)} camisetas nuevas que no estaban guardadas.")
+print(f"[4/4] DESCARGA DE NOVEDADES: Procesando imágenes nuevas...")
 
 # ==========================================
-# 5. DESCARGA ULTRA-RÁPIDA MULTIHILO (50 HILOS)
+# 5. DESCARGA Y FUSIÓN DE NUEVOS PRODUCTOS
 # ==========================================
-productos_finales = []
+nuevos_productos_guardados = []
 
 def descargar_imagen_fast(index, item):
     ruta_local = f"imagenes/camiseta_{index}.jpg"
@@ -195,17 +208,21 @@ def descargar_imagen_fast(index, item):
         pass
     return None
 
-with ThreadPoolExecutor(max_workers=50) as executor:
-    futures = [executor.submit(descargar_imagen_fast, i + 1, item) for i, item in enumerate(albumes_totales)]
-    for i, future in enumerate(futures):
-        res = future.result()
-        if res:
-            productos_finales.append(res)
-        if (i + 1) % 200 == 0 or (i + 1) == len(albumes_totales):
-            print(f" -> Progreso de descargas: {i + 1}/{len(albumes_totales)} completadas")
+if albumes_nuevos_detectados:
+    with ThreadPoolExecutor(max_workers=50) as executor:
+        futures = [executor.submit(descargar_imagen_fast, next_id + i, item) for i, item in enumerate(albumes_nuevos_detectados)]
+        for i, future in enumerate(futures):
+            res = future.result()
+            if res:
+                nuevos_productos_guardados.append(res)
+            if (i + 1) % 100 == 0 or (i + 1) == len(albumes_nuevos_detectados):
+                print(f" -> Progreso descargas nuevas: {i + 1}/{len(albumes_nuevos_detectados)}")
 
-# Guardar catálogo completo
+# Fusionar antiguos con los nuevos descargados
+catalogo_final_fusionado = productos_existentes + nuevos_productos_guardados
+
+# Guardar catálogo completo actualizado en productos.json
 with open('productos.json', 'w', encoding='utf-8') as f:
-    json.dump(productos_finales, f, ensure_ascii=False, indent=4)
+    json.dump(catalogo_final_fusionado, f, ensure_ascii=False, indent=4)
 
-print(f"\n[OK] ¡COMPLETADO EXHAUSTIVO! Se han guardado {len(productos_finales)} camisetas en 'productos.json'.")
+print(f"\n[OK] ¡FUSIÓN COMPLETADA! Catálogo total actualizado con {len(catalogo_final_fusionado)} camisetas en 'productos.json'.")
