@@ -69,7 +69,7 @@
                     <span id="theme-icon">🌙</span>
                     <span class="hidden sm:inline" id="theme-text">Modo Oscuro</span>
                 </button>
-                <a href="https://wa.me/3462765803?text=Hola,%20quiero%20hacer%20una%20consulta" target="_blank" class="bg-white hover:bg-zinc-200 text-black font-extrabold px-3 py-2 md:px-4 md:py-2 rounded-xl text-xs transition flex items-center gap-2 shadow-xl">
+                <a href="https://wa.me/34627658083?text=Hola,%20quiero%20hacer%20una%20consulta" target="_blank" class="bg-white hover:bg-zinc-200 text-black font-extrabold px-3 py-2 md:px-4 md:py-2 rounded-xl text-xs transition flex items-center gap-2 shadow-xl">
                     <span class="hidden sm:inline">WhatsApp</span>
                 </a>
             </div>
@@ -411,7 +411,7 @@
 
     <!-- LÓGICA JAVASCRIPT -->
     <script>
-        const TELEFONO_WHATSAPP = "3462765803";
+        const TELEFONO_WHATSAPP = "34627658083";
         const PRODUCTOS_POR_PAGINA = 24;
         const SLIDE_DURATION = 5000;
         let todosLosProductos = [];
@@ -762,7 +762,7 @@
             const parche = document.getElementById('input-parche').value.trim();
             const precioFinal = document.getElementById('modal-precio-total').innerText;
 
-            // URL base fija y correcta (sin duplicar carpetas)
+            // URL base limpia y correcta
             const baseUrl = "https://camislegacy.github.io/camislegacy/";
 
             let mensaje = `Hola CAMISLEGACY! Quiero confirmar este pedido:\n\n`;
@@ -771,9 +771,6 @@
             mensaje += `⚽ *Producto:* ${productoSeleccionado.titulo}\n`;
             mensaje += `🏷️ *Tipo:* ${productoSeleccionado.tipoTexto}\n`;
             mensaje += `📏 *Talla:* ${tallaNombre}\n`;
-            
-            // Corrección aplicada: se usa directamente baseUrl + productoSeleccionado.imagen 
-            // (ya que productoSeleccionado.imagen contiene la ruta correcta como "imagenes/camiseta_29.jpg")
             mensaje += `🖼️ *Foto:* ${baseUrl}${productoSeleccionado.imagen}\n`;
 
             if (llevaDorsal) {
