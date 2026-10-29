@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAMISLEGACY | Football Culture Est. 2026</title>
-    
     <meta name="referrer" content="no-referrer">
-    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -29,63 +27,50 @@
             }
         }
     </script>
-
     <style>
         .img-container { aspect-ratio: 1 / 1; }
-        
         select {
             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a1a1aa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
             background-repeat: no-repeat;
             background-position: right 0.75rem center;
             background-size: 1em;
         }
-
         body, header, div, main, footer, select, button, input {
             transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
         }
-
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #09090b; }
         ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: #71717a; }
-
         .slide-bg {
             background-size: cover;
             background-position: center;
         }
     </style>
-
     <!-- CARGA DIRECTA Y NATIVA DE DATOS -->
     <script src="productos.js"></script>
 </head>
 <body class="font-sans antialiased bg-brand-lightBg dark:bg-brand-black text-zinc-900 dark:text-zinc-100 min-h-screen flex flex-col justify-between selection:bg-zinc-800 selection:text-white">
 
-    <!-- CABECERA SOLAPADA Y TRANSLÚCIDA CON SCROLL -->
+    <!-- CABECERA SOLAPADA Y TRANSLUCIDA CON SCROLL -->
     <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-transparent border-b border-transparent p-3 md:p-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center gap-3">
-            
             <!-- LOGO OFICIAL Y NOMBRE CAMISLEGACY -->
             <div class="flex items-center gap-3 cursor-pointer" onclick="resetearFiltros()">
-                <img src="./Logos/logo_oficial.jpg" 
-                     onerror="this.onerror=null; this.src='./Logos/logo_oficial.jpeg';" 
-                     alt="CAMISLEGACY Logo" 
-                     class="h-10 w-10 md:h-12 md:w-12 object-cover rounded-xl border border-zinc-500/30 dark:border-zinc-700/50 shadow-lg">
+                <img src="./Logos/logo_oficial.jpg" onerror="this.onerror=null; this.src='./Logos/logo_oficial.jpeg';" alt="CAMISLEGACY Logo" class="h-10 w-10 md:h-12 md:w-12 object-cover dark:border-zinc-700/50 rounded-xl border border-zinc-500/30 shadow-lg">
                 <div class="flex flex-col">
                     <span class="text-base md:text-xl font-black tracking-widest uppercase text-white leading-none drop-shadow-md">CAMISLEGACY</span>
                     <span class="text-[8px] md:text-[10px] tracking-[0.25em] font-mono font-medium text-zinc-300 dark:text-zinc-400 uppercase drop-shadow">FOOTBALL CULTURE EST. 2026</span>
                 </div>
             </div>
-
             <!-- CONTROLES SUPERIORES -->
             <div class="flex items-center gap-2 md:gap-3">
                 <button onclick="toggleTheme()" id="btn-theme" class="bg-black/40 hover:bg-black/70 backdrop-blur-md text-white p-2 md:px-3 md:py-2 rounded-xl border border-white/20 transition flex items-center gap-2 text-xs font-bold shadow-lg">
                     <span id="theme-icon">🌙</span>
                     <span class="hidden sm:inline" id="theme-text">Modo Oscuro</span>
                 </button>
-
-                <a href="https://wa.me/3462765803?text=Hola,%20quiero%20hacer%20una%20consulta" target="_blank" 
-                   class="bg-white hover:bg-zinc-200 text-black font-extrabold px-3 py-2 md:px-4 md:py-2 rounded-xl text-xs transition flex items-center gap-2 shadow-xl">
-                    💬 <span class="hidden sm:inline">WhatsApp</span>
+                <a href="https://wa.me/3462765803?text=Hola,%20quiero%20hacer%20una%20consulta" target="_blank" class="bg-white hover:bg-zinc-200 text-black font-extrabold px-3 py-2 md:px-4 md:py-2 rounded-xl text-xs transition flex items-center gap-2 shadow-xl">
+                    <span class="hidden sm:inline">WhatsApp</span>
                 </a>
             </div>
         </div>
@@ -94,119 +79,66 @@
     <!-- PORTADA COMPLETA (HERO SLIDER) -->
     <section class="relative w-full h-screen min-h-[600px] bg-zinc-950 text-white overflow-hidden flex flex-col justify-between">
         <div id="slider-container" class="relative w-full flex-grow flex items-center justify-center">
-            
             <!-- Slide 1 -->
-            <div class="slide-item slide-bg absolute inset-0 opacity-100 transition-opacity duration-700 flex items-center justify-center p-6 text-center pt-24"
-                 style="background-image: linear-gradient(rgba(9, 9, 11, 0.7), rgba(9, 9, 11, 0.85)), url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1920&q=80');">
+            <div class="slide-item slide-bg absolute inset-0 opacity-100 transition-opacity duration-700 flex items-center justify-center p-6 text-center pt-24" style="background-image: linear-gradient(rgba(9, 9, 11, 0.7), rgba(9, 9, 11, 0.85)), url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1920&q=80');">
                 <div class="max-w-4xl space-y-5">
-                    <span class="inline-block bg-zinc-800/80 backdrop-blur-md border border-zinc-700 text-zinc-200 text-xs font-mono uppercase tracking-widest px-4 py-1.5 rounded-full">
-                        🔥 NUEVA COLECCIÓN 2026/2027
-                    </span>
-                    <h2 class="text-3xl md:text-6xl font-black uppercase tracking-tight leading-none text-white drop-shadow-lg">
-                        EQUIPACIONES OFICIALES <br><span class="text-zinc-400">TODAS LAS LIGAS</span>
-                    </h2>
-                    <p class="text-xs md:text-base text-zinc-300 max-w-2xl mx-auto font-light leading-relaxed">
-                        Explora el catálogo oficial de CAMISLEGACY con más de 23.000 prendas. LaLiga, Premier League, Serie A, Ligue 1 y Bundesliga.
-                    </p>
+                    <span class="inline-block bg-zinc-800/80 backdrop-blur-md border border-zinc-700 text-zinc-200 text-xs font-mono uppercase tracking-widest px-4 py-1.5 rounded-full">NUEVA COLECCIÓN 2026/2027</span>
+                    <h2 class="text-3xl md:text-6xl font-black uppercase tracking-tight leading-none text-white drop-shadow-lg">EQUIPACIONES OFICIALES <br><span class="text-zinc-400">TODAS LAS LIGAS</span></h2>
+                    <p class="text-xs md:text-base text-zinc-300 max-w-2xl mx-auto font-light leading-relaxed">Explora el catálogo oficial de CAMISLEGACY con más de 23.000 prendas. LaLiga, Premier League, Serie A, Ligue 1 y Bundesliga.</p>
                     <div class="pt-4">
-                        <a href="#catalogo" class="inline-block bg-white text-black font-black text-xs md:text-sm uppercase tracking-wider px-8 py-4 rounded-2xl hover:bg-zinc-200 transition shadow-2xl">
-                            VER CATÁLOGO DE CAMISETAS ↓
-                        </a>
+                        <a href="#catalogo" class="inline-block bg-white text-black font-black text-xs md:text-sm uppercase tracking-wider px-8 py-4 rounded-2xl hover:bg-zinc-200 transition shadow-2xl">VER CATÁLOGO DE CAMISETAS</a>
                     </div>
                 </div>
             </div>
-
             <!-- Slide 2 -->
-            <div class="slide-item slide-bg absolute inset-0 opacity-0 transition-opacity duration-700 flex items-center justify-center p-6 text-center pt-24"
-                 style="background-image: linear-gradient(rgba(9, 9, 11, 0.7), rgba(9, 9, 11, 0.85)), url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1920&q=80');">
+            <div class="slide-item slide-bg absolute inset-0 opacity-0 transition-opacity duration-700 flex items-center justify-center p-6 text-center pt-24" style="background-image: linear-gradient(rgba(9, 9, 11, 0.7), rgba(9, 9, 11, 0.85)), url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1920&q=80');">
                 <div class="max-w-4xl space-y-5">
-                    <span class="inline-block bg-zinc-800/80 backdrop-blur-md border border-zinc-700 text-zinc-200 text-xs font-mono uppercase tracking-widest px-4 py-1.5 rounded-full">
-                        🎨 COLABORACIONES EXCLUSIVAS (25€)
-                    </span>
-                    <h2 class="text-3xl md:text-6xl font-black uppercase tracking-tight leading-none text-white drop-shadow-lg">
-                        EDICIONES ESPECIALES <br><span class="text-zinc-400">CONCEPTOS & ARTISTAS</span>
-                    </h2>
-                    <p class="text-xs md:text-base text-zinc-300 max-w-2xl mx-auto font-light leading-relaxed">
-                        Diseños únicos e inspirados en música urbana, cantantes y proyectos especiales de los clubes más grandes.
-                    </p>
+                    <span class="inline-block bg-zinc-800/80 backdrop-blur-md border border-zinc-700 text-zinc-200 text-xs font-mono uppercase tracking-widest px-4 py-1.5 rounded-full">COLABORACIONES EXCLUSIVAS (25€)</span>
+                    <h2 class="text-3xl md:text-6xl font-black uppercase tracking-tight leading-none text-white drop-shadow-lg">EDICIONES ESPECIALES <br><span class="text-zinc-400">CONCEPTOS & ARTISTAS</span></h2>
+                    <p class="text-xs md:text-base text-zinc-300 max-w-2xl mx-auto font-light leading-relaxed">Diseños únicos e inspirados en música urbana, cantantes y proyectos especiales de los clubes más grandes.</p>
                     <div class="pt-4">
-                        <button onclick="filtrarCategoria('CONCEPTOS'); document.getElementById('catalogo').scrollIntoView({behavior:'smooth'});" class="inline-block bg-white text-black font-black text-xs md:text-sm uppercase tracking-wider px-8 py-4 rounded-2xl hover:bg-zinc-200 transition shadow-2xl">
-                            EXPLORAR CONCEPTOS (25€) ↓
-                        </button>
+                        <button onclick="filtrarCategoria('CONCEPTOS'); document.getElementById('catalogo').scrollIntoView({behavior:'smooth'});" class="inline-block bg-white text-black font-black text-xs md:text-sm uppercase tracking-wider px-8 py-4 rounded-2xl hover:bg-zinc-200 transition shadow-2xl">EXPLORAR CONCEPTOS (25€)</button>
                     </div>
                 </div>
             </div>
-
             <!-- Slide 3 -->
-            <div class="slide-item slide-bg absolute inset-0 opacity-0 transition-opacity duration-700 flex items-center justify-center p-6 text-center pt-24"
-                 style="background-image: linear-gradient(rgba(9, 9, 11, 0.7), rgba(9, 9, 11, 0.85)), url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1920&q=80');">
+            <div class="slide-item slide-bg absolute inset-0 opacity-0 transition-opacity duration-700 flex items-center justify-center p-6 text-center pt-24" style="background-image: linear-gradient(rgba(9, 9, 11, 0.7), rgba(9, 9, 11, 0.85)), url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1920&q=80');">
                 <div class="max-w-4xl space-y-5">
-                    <span class="inline-block bg-zinc-800/80 backdrop-blur-md border border-zinc-700 text-zinc-200 text-xs font-mono uppercase tracking-widest px-4 py-1.5 rounded-full">
-                        📜 EDICIÓN RETRO PREMIUM (25€)
-                    </span>
-                    <h2 class="text-3xl md:text-6xl font-black uppercase tracking-tight leading-none text-white drop-shadow-lg">
-                        REVIVE LA HISTORIA <br><span class="text-zinc-400">CAMISETAS MÍTICAS</span>
-                    </h2>
-                    <p class="text-xs md:text-base text-zinc-300 max-w-2xl mx-auto font-light leading-relaxed">
-                        Recupera las equipaciones históricas de los años 80, 90 y 2000 confeccionadas con los detalles originales.
-                    </p>
+                    <span class="inline-block bg-zinc-800/80 backdrop-blur-md border border-zinc-700 text-zinc-200 text-xs font-mono uppercase tracking-widest px-4 py-1.5 rounded-full">EDICIÓN RETRO PREMIUM (25€)</span>
+                    <h2 class="text-3xl md:text-6xl font-black uppercase tracking-tight leading-none text-white drop-shadow-lg">REVIVE LA HISTORIA <br><span class="text-zinc-400">CAMISETAS MÍTICAS</span></h2>
+                    <p class="text-xs md:text-base text-zinc-300 max-w-2xl mx-auto font-light leading-relaxed">Recupera las equipaciones históricas de los años 80, 90 y 2000 confeccionadas con los detalles originales.</p>
                     <div class="pt-4">
-                        <button onclick="filtrarCategoria('RETRO'); document.getElementById('catalogo').scrollIntoView({behavior:'smooth'});" class="inline-block bg-white text-black font-black text-xs md:text-sm uppercase tracking-wider px-8 py-4 rounded-2xl hover:bg-zinc-200 transition shadow-2xl">
-                            VER COLECCIÓN RETRO ↓
-                        </button>
+                        <button onclick="filtrarCategoria('RETRO'); document.getElementById('catalogo').scrollIntoView({behavior:'smooth'});" class="inline-block bg-white text-black font-black text-xs md:text-sm uppercase tracking-wider px-8 py-4 rounded-2xl hover:bg-zinc-200 transition shadow-2xl">VER COLECCIÓN RETRO</button>
                     </div>
                 </div>
             </div>
-
             <!-- Slide 4 -->
-            <div class="slide-item slide-bg absolute inset-0 opacity-0 transition-opacity duration-700 flex items-center justify-center p-6 text-center pt-24"
-                 style="background-image: linear-gradient(rgba(9, 9, 11, 0.7), rgba(9, 9, 11, 0.85)), url('https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1920&q=80');">
+            <div class="slide-item slide-bg absolute inset-0 opacity-0 transition-opacity duration-700 flex items-center justify-center p-6 text-center pt-24" style="background-image: linear-gradient(rgba(9, 9, 11, 0.7), rgba(9, 9, 11, 0.85)), url('https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1920&q=80');">
                 <div class="max-w-4xl space-y-5">
-                    <span class="inline-block bg-zinc-800/80 backdrop-blur-md border border-zinc-700 text-zinc-200 text-xs font-mono uppercase tracking-widest px-4 py-1.5 rounded-full">
-                        🏃 ENTRENAMIENTO & KITS INFANTILES
-                    </span>
-                    <h2 class="text-3xl md:text-6xl font-black uppercase tracking-tight leading-none text-white drop-shadow-lg">
-                        CHAQUETAS, SHORTS <br><span class="text-zinc-400">& CONJUNTOS DE NIÑO</span>
-                    </h2>
-                    <p class="text-xs md:text-base text-zinc-300 max-w-2xl mx-auto font-light leading-relaxed">
-                        Equípate con cortavientos (45€), pantalones cortos (20€) y conjuntos completos infantiles (25€).
-                    </p>
+                    <span class="inline-block bg-zinc-800/80 backdrop-blur-md border border-zinc-700 text-zinc-200 text-xs font-mono uppercase tracking-widest px-4 py-1.5 rounded-full">ENTRENAMIENTO & KITS INFANTILES</span>
+                    <h2 class="text-3xl md:text-6xl font-black uppercase tracking-tight leading-none text-white drop-shadow-lg">CHAQUETAS, SHORTS <br><span class="text-zinc-400">& CONJUNTOS DE NIÑO</span></h2>
+                    <p class="text-xs md:text-base text-zinc-300 max-w-2xl mx-auto font-light leading-relaxed">Equipate con cortavientos (45€), pantalones cortos (20€) y conjuntos completos infantiles (25€).</p>
                     <div class="pt-4">
-                        <a href="#catalogo" class="inline-block bg-white text-black font-black text-xs md:text-sm uppercase tracking-wider px-8 py-4 rounded-2xl hover:bg-zinc-200 transition shadow-2xl">
-                            VER EQUIPAMIENTO COMPLETO ↓
-                        </a>
+                        <a href="#catalogo" class="inline-block bg-white text-black font-black text-xs md:text-sm uppercase tracking-wider px-8 py-4 rounded-2xl hover:bg-zinc-200 transition shadow-2xl">VER EQUIPAMIENTO COMPLETO</a>
                     </div>
                 </div>
             </div>
-
             <!-- Slide 5 -->
-            <div class="slide-item slide-bg absolute inset-0 opacity-0 transition-opacity duration-700 flex items-center justify-center p-6 text-center pt-24"
-                 style="background-image: linear-gradient(rgba(9, 9, 11, 0.7), rgba(9, 9, 11, 0.85)), url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1920&q=80');">
+            <div class="slide-item slide-bg absolute inset-0 opacity-0 transition-opacity duration-700 flex items-center justify-center p-6 text-center pt-24" style="background-image: linear-gradient(rgba(9, 9, 11, 0.7), rgba(9, 9, 11, 0.85)), url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1920&q=80');">
                 <div class="max-w-4xl space-y-5">
-                    <span class="inline-block bg-zinc-800/80 backdrop-blur-md border border-zinc-700 text-zinc-200 text-xs font-mono uppercase tracking-widest px-4 py-1.5 rounded-full">
-                        📦 ENVÍO GRATUITO EN TODOS LOS PEDIDOS
-                    </span>
-                    <h2 class="text-3xl md:text-6xl font-black uppercase tracking-tight leading-none text-white drop-shadow-lg">
-                        PERSONALIZA TU PRENDA <br><span class="text-zinc-400">DORSAL Y PARCHES (+3€)</span>
-                    </h2>
-                    <p class="text-xs md:text-base text-zinc-300 max-w-2xl mx-auto font-light leading-relaxed">
-                        Añade tu nombre, número favorito y parches de competición. Recíbelo directamente en tu domicilio sin gastos de envío adicionales.
-                    </p>
+                    <span class="inline-block bg-zinc-800/80 backdrop-blur-md border border-zinc-700 text-zinc-200 text-xs font-mono uppercase tracking-widest px-4 py-1.5 rounded-full">ENVÍO GRATUITO EN TODOS LOS PEDIDOS</span>
+                    <h2 class="text-3xl md:text-6xl font-black uppercase tracking-tight leading-none text-white drop-shadow-lg">PERSONALIZA TU PRENDA <br><span class="text-zinc-400">DORSAL Y PARCHES (+3€)</span></h2>
+                    <p class="text-xs md:text-base text-zinc-300 max-w-2xl mx-auto font-light leading-relaxed">Añade tu nombre, número favorito y parches de competición. Recibelo directamente en tu domicilio sin gastos de envío adicionales.</p>
                     <div class="pt-4">
-                        <a href="#catalogo" class="inline-block bg-white text-black font-black text-xs md:text-sm uppercase tracking-wider px-8 py-4 rounded-2xl hover:bg-zinc-200 transition shadow-2xl">
-                            EMPEZAR MI PEDIDO ↓
-                        </a>
+                        <a href="#catalogo" class="inline-block bg-white text-black font-black text-xs md:text-sm uppercase tracking-wider px-8 py-4 rounded-2xl hover:bg-zinc-200 transition shadow-2xl">EMPEZAR MI PEDIDO</a>
                     </div>
                 </div>
             </div>
-
         </div>
-
-        <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/80 text-white p-3 rounded-full backdrop-blur-md border border-white/20 transition z-20">❮</button>
-        <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/80 text-white p-3 rounded-full backdrop-blur-md border border-white/20 transition z-20">❯</button>
-
+        <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/80 text-white p-3 rounded-full backdrop-blur-md border border-white/20 transition z-20">&lt;</button>
+        <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/80 text-white p-3 rounded-full backdrop-blur-md border border-white/20 transition z-20">&gt;</button>
         <!-- BARRITA DE PROGRESO DE TIEMPO INFERIOR -->
-        <div class="w-full max-w-3xl mx-auto px-6 pb-6 z-20">
+        <div class="w-full max-w-7xl mx-auto px-6 pb-6 z-20">
             <div class="grid grid-cols-5 gap-2 md:gap-3">
                 <div onclick="setSlide(0)" class="cursor-pointer group flex flex-col gap-1.5">
                     <div class="h-1.5 w-full bg-zinc-800/80 rounded-full overflow-hidden border border-zinc-700/50 backdrop-blur-sm">
@@ -214,28 +146,24 @@
                     </div>
                     <span class="text-[9px] font-mono text-zinc-400 hidden sm:block uppercase truncate group-hover:text-white transition">01. Temporada</span>
                 </div>
-
                 <div onclick="setSlide(1)" class="cursor-pointer group flex flex-col gap-1.5">
                     <div class="h-1.5 w-full bg-zinc-800/80 rounded-full overflow-hidden border border-zinc-700/50 backdrop-blur-sm">
                         <div class="progress-bar h-full bg-white w-0"></div>
                     </div>
                     <span class="text-[9px] font-mono text-zinc-400 hidden sm:block uppercase truncate group-hover:text-white transition">02. Conceptos</span>
                 </div>
-
                 <div onclick="setSlide(2)" class="cursor-pointer group flex flex-col gap-1.5">
                     <div class="h-1.5 w-full bg-zinc-800/80 rounded-full overflow-hidden border border-zinc-700/50 backdrop-blur-sm">
                         <div class="progress-bar h-full bg-white w-0"></div>
                     </div>
                     <span class="text-[9px] font-mono text-zinc-400 hidden sm:block uppercase truncate group-hover:text-white transition">03. Retro</span>
                 </div>
-
                 <div onclick="setSlide(3)" class="cursor-pointer group flex flex-col gap-1.5">
                     <div class="h-1.5 w-full bg-zinc-800/80 rounded-full overflow-hidden border border-zinc-700/50 backdrop-blur-sm">
                         <div class="progress-bar h-full bg-white w-0"></div>
                     </div>
                     <span class="text-[9px] font-mono text-zinc-400 hidden sm:block uppercase truncate group-hover:text-white transition">04. Equipamiento</span>
                 </div>
-
                 <div onclick="setSlide(4)" class="cursor-pointer group flex flex-col gap-1.5">
                     <div class="h-1.5 w-full bg-zinc-800/80 rounded-full overflow-hidden border border-zinc-700/50 backdrop-blur-sm">
                         <div class="progress-bar h-full bg-white w-0"></div>
@@ -248,25 +176,21 @@
 
     <!-- CATÁLOGO DE PRODUCTOS -->
     <main id="catalogo" class="max-w-7xl mx-auto px-3 md:px-4 py-8 flex-grow w-full">
-        
         <!-- BUSCADOR -->
         <div class="mb-6">
             <div class="relative w-full">
-                <input type="text" id="buscador" placeholder="🔍 Buscar por equipo, jugador, cantante, liga..." 
-                       class="w-full bg-brand-lightCard dark:bg-brand-card text-zinc-900 dark:text-white px-5 py-3.5 rounded-2xl border border-brand-lightBorder dark:border-brand-border focus:outline-none focus:border-zinc-500 dark:focus:border-zinc-400 transition text-sm shadow-sm">
+                <input type="text" id="buscador" placeholder="Buscar por equipo, jugador, cantante, liga..." class="w-full bg-brand-lightCard dark:bg-brand-card text-zinc-900 dark:text-white px-5 py-3.5 rounded-2xl border focus:outline-none transition text-sm border-brand-lightBorder dark:border-brand-border focus:border-zinc-500 dark:focus:border-zinc-400 shadow-sm">
             </div>
         </div>
 
         <!-- PANEL DE FILTROS AVANZADO -->
         <div class="bg-brand-lightCard dark:bg-brand-card border border-brand-lightBorder dark:border-brand-border rounded-2xl p-4 md:p-5 mb-8 shadow-sm flex flex-col gap-5">
-            
             <!-- 1. DESPLEGABLES LIGAS Y EQUIPOS -->
             <div>
-                <span class="text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider block mb-3">🏆 Desplegable por Liga y Equipo:</span>
+                <span class="text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider block mb-3">Filtrar por Liga y Equipo:</span>
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5" id="desplegables-ligas">
-                    
                     <select id="select-laliga" onchange="filtrarPorDesplegable('LALIGA', this.value)" class="w-full bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 border border-zinc-300 dark:border-zinc-700 rounded-xl px-3 py-2.5 text-xs focus:outline-none appearance-none cursor-pointer">
-                        <option value="">🇪🇸 LaLiga</option>
+                        <option value="">LaLiga</option>
                         <option value="real madrid">Real Madrid</option>
                         <option value="barcelona">FC Barcelona</option>
                         <option value="atletico">Atlético de Madrid</option>
@@ -288,9 +212,8 @@
                         <option value="getafe">Getafe CF</option>
                         <option value="valladolid">Real Valladolid</option>
                     </select>
-
                     <select id="select-premier" onchange="filtrarPorDesplegable('PREMIER', this.value)" class="w-full bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 border border-zinc-300 dark:border-zinc-700 rounded-xl px-3 py-2.5 text-xs focus:outline-none appearance-none cursor-pointer">
-                        <option value="">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League</option>
+                        <option value="">Premier League</option>
                         <option value="arsenal">Arsenal FC</option>
                         <option value="chelsea">Chelsea FC</option>
                         <option value="liverpool">Liverpool FC</option>
@@ -310,9 +233,8 @@
                         <option value="bournemouth">Bournemouth</option>
                         <option value="nottingham">Nottingham Forest</option>
                     </select>
-
-                    <select id="select-ligue1" onchange="filtrarPorDesplegable('LIGUE_1', this.value)" class="w-full bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 border border-zinc-300 dark:border-zinc-700 rounded-xl px-3 py-2.5 text-xs focus:outline-none appearance-none cursor-pointer">
-                        <option value="">🇫🇷 Ligue 1</option>
+                    <select id="select-liguel" onchange="filtrarPorDesplegable('LIGUE_1', this.value)" class="w-full bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 border border-zinc-300 dark:border-zinc-700 rounded-xl px-3 py-2.5 text-xs focus:outline-none appearance-none cursor-pointer">
+                        <option value="">Ligue 1</option>
                         <option value="psg">Paris Saint-Germain (PSG)</option>
                         <option value="marseille">Olympique Marseille</option>
                         <option value="lyon">Olympique Lyonnais</option>
@@ -324,9 +246,8 @@
                         <option value="strasbourg">RC Strasbourg</option>
                         <option value="nantes">FC Nantes</option>
                     </select>
-
                     <select id="select-bundesliga" onchange="filtrarPorDesplegable('BUNDESLIGA', this.value)" class="w-full bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 border border-zinc-300 dark:border-zinc-700 rounded-xl px-3 py-2.5 text-xs focus:outline-none appearance-none cursor-pointer">
-                        <option value="">🇩🇪 Bundesliga</option>
+                        <option value="">Bundesliga</option>
                         <option value="bayern">Bayern München</option>
                         <option value="dortmund">Borussia Dortmund</option>
                         <option value="leverkusen">Bayer Leverkusen</option>
@@ -337,9 +258,8 @@
                         <option value="gladbach">Borussia M'gladbach</option>
                         <option value="werder">Werder Bremen</option>
                     </select>
-
-                    <select id="select-seriea" onchange="filtrarPorDesplegable('SERIE_A', this.value)" class="w-full bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 border border-zinc-300 dark:border-zinc-700 rounded-xl px-3 py-2.5 text-xs focus:outline-none appearance-none cursor-pointer">
-                        <option value="">🇮🇹 Serie A</option>
+                    <select id="select-seriea" onchange="filtrarPorDesplegable('SERIE A', this.value)" class="w-full bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 border border-zinc-300 dark:border-zinc-700 rounded-xl px-3 py-2.5 text-xs focus:outline-none appearance-none cursor-pointer">
+                        <option value="">Serie A</option>
                         <option value="juventus">Juventus FC</option>
                         <option value="inter">Inter de Milán</option>
                         <option value="milan">AC Milan</option>
@@ -351,46 +271,40 @@
                         <option value="torino">Torino FC</option>
                         <option value="bologna">Bologna FC</option>
                     </select>
-
                     <select id="select-selecciones" onchange="filtrarPorDesplegable('SELECCIONES', this.value)" class="w-full bg-zinc-100 dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 border border-zinc-300 dark:border-zinc-700 rounded-xl px-3 py-2.5 text-xs focus:outline-none appearance-none cursor-pointer">
-                        <option value="">🌍 Selecciones</option>
-                        <option value="spain">🇪🇸 España</option>
-                        <option value="argentina">🇦🇷 Argentina</option>
-                        <option value="brazil">🇧🇷 Brasil</option>
-                        <option value="france">🇫🇷 Francia</option>
-                        <option value="germany">🇩🇪 Alemania</option>
-                        <option value="england">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra</option>
-                        <option value="portugal">🇵🇹 Portugal</option>
-                        <option value="italy">🇮🇹 Italia</option>
-                        <option value="croatia">🇭🇷 Croacia</option>
-                        <option value="colombia">🇨🇴 Colombia</option>
-                        <option value="mexico">🇲🇽 México</option>
-                        <option value="japan">🇯🇵 Japón</option>
-                        <option value="morocco">🇲🇦 Marruecos</option>
+                        <option value="">Selecciones</option>
+                        <option value="spain">España</option>
+                        <option value="argentina">Argentina</option>
+                        <option value="brazil">Brasil</option>
+                        <option value="france">Francia</option>
+                        <option value="germany">Alemania</option>
+                        <option value="england">Inglaterra</option>
+                        <option value="portugal">Portugal</option>
+                        <option value="italy">Italia</option>
+                        <option value="croatia">Croacia</option>
+                        <option value="colombia">Colombia</option>
+                        <option value="mexico">México</option>
+                        <option value="japan">Japón</option>
+                        <option value="morocco">Marruecos</option>
                     </select>
-
                 </div>
             </div>
-
             <hr class="border-zinc-200 dark:border-zinc-800">
-
-            <!-- 2. FILTROS CATEGORÍAS -->
+            <!-- 2. FILTROS CATEGORIAS -->
             <div>
-                <span class="text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider block mb-2">👕 Tipo de Producto:</span>
+                <span class="text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider block mb-2">Tipo de Producto:</span>
                 <div class="flex flex-wrap gap-2" id="filtros-categorias">
                     <button onclick="filtrarCategoria('TODAS')" class="btn-cat bg-zinc-900 dark:bg-white text-white dark:text-black font-extrabold px-3 py-1.5 rounded-xl text-xs uppercase transition">Todas</button>
-                    <button onclick="filtrarCategoria('CONCEPTOS')" class="btn-cat bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold px-3 py-1.5 rounded-xl text-xs uppercase border border-zinc-300 dark:border-zinc-700 transition">🎨 Conceptos / Cantantes</button>
-                    <button onclick="filtrarCategoria('MANGA_LARGA')" class="btn-cat bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold px-3 py-1.5 rounded-xl text-xs uppercase border border-zinc-300 dark:border-zinc-700 transition">👕 Manga Larga (25€)</button>
-                    <button onclick="filtrarCategoria('CHAQUETAS')" class="btn-cat bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold px-3 py-1.5 rounded-xl text-xs uppercase border border-zinc-300 dark:border-zinc-700 transition">🧥 Chaquetas / Cortavientos</button>
-                    <button onclick="filtrarCategoria('SHORTS')" class="btn-cat bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold px-3 py-1.5 rounded-xl text-xs uppercase border border-zinc-300 dark:border-zinc-700 transition">🩳 Pantalones Cortos</button>
-                    <button onclick="filtrarCategoria('INFANTIL')" class="btn-cat bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold px-3 py-1.5 rounded-xl text-xs uppercase border border-zinc-300 dark:border-zinc-700 transition">👶 Conjuntos Infantiles</button>
-                    <button onclick="filtrarCategoria('ENTRENAMIENTO')" class="btn-cat bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold px-3 py-1.5 rounded-xl text-xs uppercase border border-zinc-300 dark:border-zinc-700 transition">🏃 Entrenamiento</button>
-                    <button onclick="filtrarCategoria('RETRO')" class="btn-cat bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold px-3 py-1.5 rounded-xl text-xs uppercase border border-zinc-300 dark:border-zinc-700 transition">📜 Retro</button>
+                    <button onclick="filtrarCategoria('CONCEPTOS')" class="btn-cat bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold px-3 py-1.5 rounded-xl text-xs uppercase border border-zinc-300 dark:border-zinc-700 transition">Conceptos / Cantantes</button>
+                    <button onclick="filtrarCategoria('MANGA_LARGA')" class="btn-cat bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold px-3 py-1.5 rounded-xl text-xs uppercase border border-zinc-300 dark:border-zinc-700 transition">Manga Larga (25€)</button>
+                    <button onclick="filtrarCategoria('CHAQUETAS')" class="btn-cat bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold px-3 py-1.5 rounded-xl text-xs uppercase border border-zinc-300 dark:border-zinc-700 transition">Chaquetas / Cortavientos</button>
+                    <button onclick="filtrarCategoria('SHORTS')" class="btn-cat bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold px-3 py-1.5 rounded-xl text-xs uppercase border border-zinc-300 dark:border-zinc-700 transition">Pantalones Cortos</button>
+                    <button onclick="filtrarCategoria('INFANTIL')" class="btn-cat bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold px-3 py-1.5 rounded-xl text-xs uppercase border border-zinc-300 dark:border-zinc-700 transition">Conjuntos Infantiles</button>
+                    <button onclick="filtrarCategoria('ENTRENAMIENTO')" class="btn-cat bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold px-3 py-1.5 rounded-xl text-xs uppercase border border-zinc-300 dark:border-zinc-700 transition">Entrenamiento</button>
+                    <button onclick="filtrarCategoria('RETRO')" class="btn-cat bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold px-3 py-1.5 rounded-xl text-xs uppercase border border-zinc-300 dark:border-zinc-700 transition">Retro</button>
                 </div>
             </div>
-
             <hr class="border-zinc-200 dark:border-zinc-800">
-
             <!-- 3. TEMPORADA -->
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
                 <div class="flex flex-wrap items-center gap-2" id="filtros-temporadas">
@@ -400,10 +314,7 @@
                     <button onclick="filtrarTemporada('25/26')" class="btn-temp bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 px-3 py-1 rounded-lg text-xs font-medium border border-zinc-300 dark:border-zinc-700 transition">25/26</button>
                     <button onclick="filtrarTemporada('24/25')" class="btn-temp bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 px-3 py-1 rounded-lg text-xs font-medium border border-zinc-300 dark:border-zinc-700 transition">24/25</button>
                 </div>
-
-                <button onclick="resetearFiltros()" class="text-zinc-500 hover:text-zinc-900 dark:hover:text-white text-xs font-bold underline transition self-start md:self-auto">
-                    🔄 Limpiar Filtros
-                </button>
+                <button onclick="resetearFiltros()" class="text-zinc-500 hover:text-zinc-900 dark:hover:text-white text-xs font-bold underline transition self-start md:self-auto">Limpiar Filtros</button>
             </div>
         </div>
 
@@ -418,27 +329,18 @@
 
         <!-- PAGINACIÓN -->
         <div class="flex justify-center items-center gap-4 mt-12" id="paginacion-controls">
-            <button id="btn-prev" onclick="cambiarPagina(-1)" class="bg-brand-lightCard dark:bg-brand-card hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-900 dark:text-white font-bold px-4 py-2 rounded-xl text-xs md:text-sm border border-brand-lightBorder dark:border-brand-border disabled:opacity-30 disabled:cursor-not-allowed transition">
-                ← Anterior
-            </button>
+            <button id="btn-prev" onclick="cambiarPagina(-1)" class="bg-brand-lightCard dark:bg-brand-card hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-900 dark:text-white font-bold px-4 py-2 rounded-xl text-xs md:text-sm border border-brand-lightBorder dark:border-brand-border disabled:opacity-30 disabled:cursor-not-allowed transition">&larr; Anterior</button>
             <span id="info-pagina" class="text-xs md:text-sm font-semibold text-zinc-500 dark:text-zinc-400 font-mono">Página 1</span>
-            <button id="btn-next" onclick="cambiarPagina(1)" class="bg-brand-lightCard dark:bg-brand-card hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-900 dark:text-white font-bold px-4 py-2 rounded-xl text-xs md:text-sm border border-brand-lightBorder dark:border-brand-border disabled:opacity-30 disabled:cursor-not-allowed transition">
-                Siguiente →
-            </button>
+            <button id="btn-next" onclick="cambiarPagina(1)" class="bg-brand-lightCard dark:bg-brand-card hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-900 dark:text-white font-bold px-4 py-2 rounded-xl text-xs md:text-sm border border-brand-lightBorder dark:border-brand-border disabled:opacity-30 disabled:cursor-not-allowed transition">Siguiente &rarr;</button>
         </div>
     </main>
 
     <!-- VENTANA MODAL PEDIDOS WHATSAPP -->
     <div id="modal-pedido" class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-3 md:p-4 hidden backdrop-blur-md">
         <div class="bg-brand-lightCard dark:bg-brand-card border border-brand-lightBorder dark:border-brand-border rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl relative flex flex-col max-h-[90vh]">
-            
-            <button onclick="cerrarModal()" class="absolute top-3 right-3 text-zinc-400 hover:text-white bg-black/50 rounded-full p-2 z-10 transition">
-                ✕
-            </button>
-
+            <button onclick="cerrarModal()" class="absolute top-3 right-3 text-zinc-400 hover:text-white bg-black/50 rounded-full p-2 z-10 transition">✕</button>
             <form id="form-pedido-whatsapp" onsubmit="enviarPedidoWhatsAppDirecto(event)" class="flex flex-col flex-grow overflow-hidden">
                 <div class="p-5 md:p-6 overflow-y-auto space-y-4 flex-grow">
-                    
                     <div class="flex items-center gap-4 border-b border-zinc-200 dark:border-zinc-800 pb-4">
                         <img id="modal-img" src="" alt="" class="w-20 h-20 object-cover rounded-xl bg-zinc-900 border border-zinc-700">
                         <div>
@@ -446,9 +348,8 @@
                             <span id="modal-tipo" class="text-xs text-zinc-500 dark:text-zinc-400 font-mono mt-1 block"></span>
                         </div>
                     </div>
-
                     <!-- Datos del Cliente -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div>
                             <label class="block text-[10px] font-bold text-zinc-500 uppercase mb-1">Tu Nombre:</label>
                             <input type="text" id="cliente_nombre" required placeholder="Ej: Juan Pérez" class="w-full bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-white text-xs p-2.5 rounded-xl border border-zinc-300 dark:border-zinc-700 focus:outline-none">
@@ -458,7 +359,6 @@
                             <input type="text" id="cliente_contacto" required placeholder="Ej: +34 600000000" class="w-full bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-white text-xs p-2.5 rounded-xl border border-zinc-300 dark:border-zinc-700 focus:outline-none">
                         </div>
                     </div>
-
                     <!-- Talla -->
                     <div>
                         <label class="block text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-1">Talla disponible:</label>
@@ -472,14 +372,12 @@
                             <option value="4XL|2">4XL (+2.00€)</option>
                         </select>
                     </div>
-
                     <!-- Personalización Dorsal y Parche -->
                     <div class="bg-zinc-100 dark:bg-zinc-900/80 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 space-y-3">
                         <label class="flex items-center gap-3 cursor-pointer">
                             <input type="checkbox" id="check-dorsal" onchange="toggleDorsalInputs(); calcularTotalModal();" class="w-4 h-4 accent-zinc-900 dark:accent-white rounded">
                             <span class="text-xs font-bold text-zinc-800 dark:text-zinc-200">Añadir Dorsal (Nombre + Número) y Parche (+3.00€)</span>
                         </label>
-
                         <div id="campos-dorsal" class="space-y-2 pt-2 hidden">
                             <div>
                                 <input type="text" id="input-nombre" placeholder="Nombre en la camiseta (Ej: RONALDO)" class="w-full bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white text-xs p-2.5 rounded-lg border border-zinc-300 dark:border-zinc-700 focus:outline-none uppercase">
@@ -490,24 +388,19 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="bg-zinc-100 dark:bg-zinc-900 p-3 rounded-xl flex justify-between items-center text-xs">
-                        <span class="text-zinc-500 dark:text-zinc-400">📦 Gastos de Envío:</span>
+                        <span class="text-zinc-500 dark:text-zinc-400">Gastos de Envio:</span>
                         <span class="text-zinc-900 dark:text-white font-black uppercase">Gratuito</span>
                     </div>
                 </div>
-
                 <div class="bg-zinc-100 dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-800 p-4 flex justify-between items-center gap-4">
                     <div>
                         <span class="text-[10px] text-zinc-500 uppercase tracking-wider block font-mono">Precio Final:</span>
                         <span id="modal-precio-total" class="text-2xl font-black text-zinc-900 dark:text-white font-mono">20.00€</span>
                     </div>
-                    <button type="submit" id="btn-submit-order" class="bg-zinc-900 hover:bg-zinc-800 dark:bg-white dark:hover:bg-zinc-200 text-white dark:text-black font-extrabold text-xs md:text-sm px-5 py-3 rounded-xl transition flex items-center gap-2 shadow-xl">
-                        💬 Enviar Pedido por WhatsApp
-                    </button>
+                    <button type="submit" id="btn-submit-order" class="bg-zinc-900 hover:bg-zinc-800 dark:bg-white dark:hover:bg-zinc-200 text-white dark:text-black font-extrabold text-xs md:text-sm px-5 py-3 rounded-xl transition flex items-center gap-2 shadow-xl">Enviar Pedido por WhatsApp</button>
                 </div>
             </form>
-
         </div>
     </div>
 
@@ -518,20 +411,16 @@
 
     <!-- LÓGICA JAVASCRIPT -->
     <script>
-        // 👇 REEMPLAZA ESTE NÚMERO CON TU WHATSAPP REAL (Ej: "34612345678")
-        const TELEFONO_WHATSAPP = "34627658083"; 
-        
+        const TELEFONO_WHATSAPP = "3462765803";
         const PRODUCTOS_POR_PAGINA = 24;
         const SLIDE_DURATION = 5000;
-        
         let todosLosProductos = [];
         let productosFiltrados = [];
         let paginaActual = 1;
         let productoSeleccionado = null;
         let precioBaseActual = 20;
-
-        let ligaFiltroKey = ''; 
-        let equipoFiltroTerm = ''; 
+        let ligaFiltroKey = '';
+        let equipoFiltroTerm = '';
         let categoriaActiva = 'TODAS';
         let temporadaActiva = 'TODAS';
 
@@ -582,9 +471,7 @@
             slides.forEach((slide, i) => {
                 slide.style.opacity = (i === index) ? '1' : '0';
             });
-
             currentSlide = index;
-
             progressBars.forEach((bar, i) => {
                 bar.style.transition = 'none';
                 if (i < index) {
@@ -593,13 +480,12 @@
                     bar.style.width = '0%';
                 }
             });
-
             const currentBar = progressBars[currentSlide];
-            void currentBar.offsetWidth;
-
-            currentBar.style.transition = `width ${SLIDE_DURATION}ms linear`;
-            currentBar.style.width = '100%';
-
+            if (currentBar) {
+                void currentBar.offsetWidth;
+                currentBar.style.transition = `width ${SLIDE_DURATION}ms linear`;
+                currentBar.style.width = '100%';
+            }
             clearTimeout(slideTimer);
             slideTimer = setTimeout(nextSlide, SLIDE_DURATION);
         }
@@ -610,16 +496,14 @@
         const DICCIONARIO_LIGAS = {
             'LALIGA': ['la liga', 'laliga', 'real madrid', 'barcelona', 'atletico', 'sevilla', 'betis', 'valencia', 'athletic', 'villarreal', 'girona', 'celta', 'sociedad', 'rayo', 'osasuna', 'espanyol', 'mallorca', 'las palmas', 'alaves', 'leganes', 'getafe', 'valladolid'],
             'PREMIER': ['premier', 'arsenal', 'chelsea', 'liverpool', 'manchester', 'm-u', 'm-c', 'tottenham', 'spurs', 'aston villa', 'newcastle', 'west ham', 'everton', 'wolves', 'brighton', 'fulham', 'brentford', 'crystal palace', 'leicester', 'bournemouth', 'nottingham'],
-            'SERIE_A': ['serie a', 'juventus', 'inter', 'milan', 'napoli', 'roma', 'lazio', 'fiorentina', 'atalanta', 'torino', 'bologna'],
+            'SERIE A': ['serie a', 'juventus', 'inter', 'milan', 'napoli', 'roma', 'lazio', 'fiorentina', 'atalanta', 'torino', 'bologna'],
             'BUNDESLIGA': ['bundesliga', 'bayern', 'dortmund', 'leverkusen', 'leipzig', 'stuttgart', 'frankfurt', 'wolfsburg', 'gladbach', 'werder'],
-            'LIGUE_1': ['ligue 1', 'ligue1', 'psg', 'marseille', 'lyon', 'monaco', 'lille', 'rennes', 'nice', 'lens', 'strasbourg', 'nantes'],
-            'SELECCIONES': ['croatia', 'argentina', 'mexico', 'portugal', 'spain', 'brazil', 'france', 'germany', 'england', 'italy', 'colombia', 'japan', 'morocco', 'world cup', 'euro', 'copa america', '2026']
+            'LIGUE 1': ['ligue 1', 'liguel', 'psg', 'marseille', 'lyon', 'monaco', 'lille', 'rennes', 'nice', 'lens', 'strasbourg', 'nantes'],
+            'SELECCIONES': ['croatia', 'argentina', 'mexico', 'spain', 'japan', 'brazil', 'france', 'germany', 'england', 'italy', 'portugal', 'colombia', 'morocco', 'world cup', 'euro', 'copa america', '2026']
         };
 
         const TERMINOS_CONCEPTOS = [
-            'concept', 'special edition', 'collab', 'collaboration', 'drake', 'travis', 
-            'bad bunny', 'coldplay', 'artist', 'cantante', 'special', 'ovo', 'cactus jack',
-            'rosalia', 'karol g', 'rolling stones', 'the weeknd', 'music'
+            'concept', 'special edition', 'collab', 'collaboration', 'drake', 'travis', 'bad bunny', 'coldplay', 'artist', 'cantante', 'special', 'ovo', 'cactus jack', 'rosalia', 'karol g', 'rolling stones', 'the weeknd', 'music'
         ];
 
         function esConceptoOCantante(titulo) {
@@ -627,45 +511,41 @@
             return TERMINOS_CONCEPTOS.some(term => t.includes(term));
         }
 
-        function esMangaLarga(titulo) {
+        function esMangalarga(titulo) {
             const t = (titulo || '').toLowerCase();
             return t.includes('long sleeve') || t.includes('manga larga') || t.includes('long sleeved') || t.includes('long-sleeve');
         }
 
         function calcularPrecioBase(titulo) {
             const t = (titulo || '').toLowerCase();
-
             if (esConceptoOCantante(t)) {
-                return { precio: 25, tipo: "🎨 Concepto / Cantante (25.00€)" };
+                return { precio: 25, tipo: "Concepto / Cantante (25.00€)" };
             }
-            if (esMangaLarga(t)) {
-                return { precio: 25, tipo: "👕 Manga Larga (25.00€)" };
+            if (esMangalarga(t)) {
+                return { precio: 25, tipo: "Manga Larga (25.00€)" };
             }
             if (t.includes('windbreaker') || t.includes('chaqueta') || t.includes('jacket') || t.includes('tracksuit')) {
-                return { precio: 45, tipo: "🧥 Chaqueta / Cortavientos (45.00€)" };
+                return { precio: 45, tipo: "Chaqueta / Cortavientos (45.00€)" };
             }
             if (t.includes('player') || t.includes('jugador')) {
-                return { precio: 25, tipo: "👕 Player Version (25.00€)" };
+                return { precio: 25, tipo: "Player Version (25.00€)" };
             }
             if (t.includes('retro')) {
-                return { precio: 25, tipo: "👔 Edición Retro (25.00€)" };
+                return { precio: 25, tipo: "Edición Retro (25.00€)" };
             }
             if (t.includes('kids') || t.includes('baby') || t.includes('child') || t.includes('infantil')) {
-                return { precio: 25, tipo: "👶 Conjunto Infantil (25.00€)" };
+                return { precio: 25, tipo: "Conjunto Infantil (25.00€)" };
             }
             if (t.includes('shorts') || t.includes('pantalon') || t.includes('pantalón')) {
-                return { precio: 20, tipo: "🩳 Pantalón Corto (20.00€)" };
+                return { precio: 20, tipo: "Pantalón Corto (20.00€)" };
             }
-
-            return { precio: 20, tipo: "👕 Fan Version (20.00€)" };
+            return { precio: 20, tipo: "Fan Version (20.00€)" };
         }
 
         window.addEventListener('DOMContentLoaded', () => {
             initTheme();
             setSlide(0);
-            
             const rawData = window.TODOS_LOS_PRODUCTOS || [];
-            
             todosLosProductos = rawData.map(p => {
                 const infoPrecio = calcularPrecioBase(p.t);
                 return {
@@ -678,7 +558,6 @@
                     _t: (p.t || '').toLowerCase()
                 };
             });
-
             productosFiltrados = todosLosProductos;
             aplicarFiltros();
         });
@@ -689,7 +568,6 @@
 
             productosFiltrados = todosLosProductos.filter(prod => {
                 const titulo = prod._t;
-
                 if (busqueda && !titulo.includes(busqueda)) return false;
 
                 if (equipoFiltroTerm) {
@@ -702,7 +580,7 @@
                 if (categoriaActiva === 'CONCEPTOS') {
                     if (!esConceptoOCantante(titulo)) return false;
                 } else if (categoriaActiva === 'MANGA_LARGA') {
-                    if (!esMangaLarga(titulo)) return false;
+                    if (!esMangalarga(titulo)) return false;
                 } else if (categoriaActiva === 'CHAQUETAS') {
                     if (!titulo.includes('windbreaker') && !titulo.includes('chaqueta') && !titulo.includes('jacket') && !titulo.includes('tracksuit')) return false;
                 } else if (categoriaActiva === 'SHORTS') {
@@ -725,7 +603,6 @@
 
                 return true;
             });
-
             paginaActual = 1;
             renderPage();
         }
@@ -736,17 +613,14 @@
             const infoPagina = document.getElementById('info-pagina');
             const btnPrev = document.getElementById('btn-prev');
             const btnNext = document.getElementById('btn-next');
-
             const totalPaginas = Math.ceil(productosFiltrados.length / PRODUCTOS_POR_PAGINA) || 1;
             const inicio = (paginaActual - 1) * PRODUCTOS_POR_PAGINA;
             const itemsPagina = productosFiltrados.slice(inicio, inicio + PRODUCTOS_POR_PAGINA);
 
-            grid.innerHTML = '';
             contador.innerText = `${productosFiltrados.length} disponibles`;
             infoPagina.innerText = `Página ${paginaActual} de ${totalPaginas}`;
-
-            btnPrev.disabled = paginaActual === 1;
-            btnNext.disabled = paginaActual >= totalPaginas;
+            btnPrev.disabled = (paginaActual === 1);
+            btnNext.disabled = (paginaActual >= totalPaginas);
 
             if (itemsPagina.length === 0) {
                 grid.innerHTML = `<p class="col-span-full text-center text-zinc-500 py-12">No se encontraron productos con estos filtros.</p>`;
@@ -758,7 +632,6 @@
                 const div = document.createElement('div');
                 div.className = "bg-brand-lightCard dark:bg-brand-card border border-brand-lightBorder dark:border-brand-border rounded-xl md:rounded-2xl overflow-hidden shadow-sm hover:border-zinc-400 dark:hover:border-zinc-500 transition duration-200 flex flex-col justify-between cursor-pointer";
                 div.onclick = () => abrirModal(prod);
-
                 div.innerHTML = `
                     <div class="img-container bg-zinc-100 dark:bg-zinc-900 overflow-hidden relative">
                         <img src="./${prod.imagen}" alt="${prod.titulo}" decoding="async" class="w-full h-full object-cover hover:scale-105 transition duration-300">
@@ -767,26 +640,24 @@
                         <h3 class="font-bold text-[11px] md:text-xs text-zinc-900 dark:text-zinc-100 line-clamp-2 leading-snug">${prod.titulo}</h3>
                         <div class="flex items-center justify-between pt-1">
                             <span class="text-zinc-900 dark:text-white font-mono font-black text-xs md:text-sm">${prod.precioBase}.00€</span>
-                            <button class="bg-zinc-900 dark:bg-white text-white dark:text-black font-extrabold text-[9px] md:text-[10px] px-2 py-1 md:px-2.5 md:py-1.5 rounded-lg transition">
-                                Pedir
-                            </button>
+                            <button class="bg-zinc-900 dark:bg-white text-white dark:text-black font-extrabold text-[9px] md:text-[10px] px-2 py-1 md:px-2.5 md:py-1.5 rounded-lg transition">Pedir</button>
                         </div>
                     </div>
                 `;
                 fragment.appendChild(div);
             });
+            grid.innerHTML = '';
             grid.appendChild(fragment);
         }
 
         function filtrarPorDesplegable(ligaKey, equipoValue) {
-            const selects = ['select-laliga', 'select-premier', 'select-ligue1', 'select-bundesliga', 'select-seriea', 'select-selecciones'];
+            const selects = ['select-laliga', 'select-premier', 'select-liguel', 'select-bundesliga', 'select-seriea', 'select-selecciones'];
             selects.forEach(id => {
                 const sel = document.getElementById(id);
                 if (sel && !sel.id.includes(ligaKey.toLowerCase().replace('_', ''))) {
                     sel.value = "";
                 }
             });
-
             ligaFiltroKey = ligaKey;
             equipoFiltroTerm = equipoValue;
             aplicarFiltros();
@@ -816,34 +687,29 @@
             categoriaActiva = 'TODAS';
             temporadaActiva = 'TODAS';
             document.getElementById('buscador').value = '';
-
-            const selects = ['select-laliga', 'select-premier', 'select-ligue1', 'select-bundesliga', 'select-seriea', 'select-selecciones'];
+            const selects = ['select-laliga', 'select-premier', 'select-liguel', 'select-bundesliga', 'select-seriea', 'select-selecciones'];
             selects.forEach(id => {
                 const sel = document.getElementById(id);
                 if (sel) sel.value = "";
             });
-
             document.querySelectorAll('.btn-cat').forEach(btn => {
-                btn.className = 'btn-cat bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold px-3 py-1.5 rounded-xl text-xs uppercase border border-zinc-300 dark:border-zinc-700 transition';
+                btn.className = 'btn-cat bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 font-bold px-3 py-1.5 rounded-xl text-xs uppercase border border-zinc-300 dark:border-zinc-700 transition';
             });
-            document.querySelector('.btn-cat').className = 'btn-cat bg-zinc-900 dark:bg-white text-white dark:text-black font-extrabold px-3 py-1.5 rounded-xl text-xs uppercase transition';
-
+            if(document.querySelector('.btn-cat')) document.querySelector('.btn-cat').className = 'btn-cat bg-zinc-900 dark:bg-white text-white dark:text-black font-extrabold px-3 py-1.5 rounded-xl text-xs uppercase transition';
+            
             document.querySelectorAll('.btn-temp').forEach(btn => {
                 btn.className = 'btn-temp bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 px-3 py-1 rounded-lg text-xs font-medium border border-zinc-300 dark:border-zinc-700 transition';
             });
-            document.querySelector('.btn-temp').className = 'btn-temp bg-zinc-900 dark:bg-white text-white dark:text-black font-extrabold px-3 py-1 rounded-lg text-xs transition';
-
+            if(document.querySelector('.btn-temp')) document.querySelector('.btn-temp').className = 'btn-temp bg-zinc-900 dark:bg-white text-white dark:text-black font-extrabold px-3 py-1 rounded-lg text-xs transition';
             aplicarFiltros();
         }
 
         function abrirModal(producto) {
             productoSeleccionado = producto;
             precioBaseActual = producto.precioBase;
-
-            document.getElementById('modal-img').src = `./${producto.imagen}`;
+            document.getElementById('modal-img').src = "./" + producto.imagen;
             document.getElementById('modal-titulo').innerText = producto.titulo;
             document.getElementById('modal-tipo').innerText = producto.tipoTexto;
-
             document.getElementById('select-talla').value = "M|0";
             document.getElementById('check-dorsal').checked = false;
             document.getElementById('cliente_nombre').value = "";
@@ -851,10 +717,8 @@
             document.getElementById('input-nombre').value = "";
             document.getElementById('input-numero').value = "";
             document.getElementById('input-parche').value = "";
-
             toggleDorsalInputs();
             calcularTotalModal();
-
             document.getElementById('modal-pedido').classList.remove('hidden');
         }
 
@@ -874,24 +738,21 @@
 
         function calcularTotalModal() {
             let total = precioBaseActual;
-
             const valTalla = document.getElementById('select-talla').value.split('|');
             const supTalla = parseFloat(valTalla[1]) || 0;
             total += supTalla;
-
             if (document.getElementById('check-dorsal').checked) {
                 total += 3;
             }
-
-            document.getElementById('modal-precio-total').innerText = `${total.toFixed(2)}€`;
+            document.getElementById('modal-precio-total').innerText = total.toFixed(2) + '€';
         }
-function enviarPedidoWhatsAppDirecto(event) {
+
+        function enviarPedidoWhatsAppDirecto(event) {
             event.preventDefault();
             if (!productoSeleccionado) return;
 
             const clienteNombre = document.getElementById('cliente_nombre').value.trim();
             const clienteContacto = document.getElementById('cliente_contacto').value.trim();
-
             const valTalla = document.getElementById('select-talla').value.split('|');
             const tallaNombre = valTalla[0];
             const llevaDorsal = document.getElementById('check-dorsal').checked;
@@ -910,8 +771,8 @@ function enviarPedidoWhatsAppDirecto(event) {
             mensaje += `⚽ *Producto:* ${productoSeleccionado.titulo}\n`;
             mensaje += `🏷️ *Tipo:* ${productoSeleccionado.tipoTexto}\n`;
             mensaje += `📏 *Talla:* ${tallaNombre}\n`;
-            mensaje += `🖼️ *Foto:* ${baseUrl}imagenes/${productoSeleccionado.imagen}\n`;
-            
+            mensaje += `🖼️ *Foto:* ${baseUrl}${productoSeleccionado.imagen}\n`;
+
             if (llevaDorsal) {
                 mensaje += `🔟 *Personalización:* Sí (+3€)\n`;
                 if (nombre) mensaje += `   - *Nombre:* ${nombre.toUpperCase()}\n`;
@@ -926,14 +787,16 @@ function enviarPedidoWhatsAppDirecto(event) {
 
             const url = `https://wa.me/${TELEFONO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
             window.open(url, '_blank');
-
             cerrarModal();
         }
 
         function cambiarPagina(dir) {
             paginaActual += dir;
             renderPage();
-            window.scrollTo({ top: document.getElementById('catalogo').offsetTop - 80, behavior: 'smooth' });
+            window.scrollTo({
+                top: document.getElementById('catalogo').offsetTop - 80,
+                behavior: 'smooth'
+            });
         }
 
         let timerBusqueda;
