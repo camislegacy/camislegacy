@@ -885,8 +885,7 @@
 
             document.getElementById('modal-precio-total').innerText = `${total.toFixed(2)}€`;
         }
-
-        function enviarPedidoWhatsAppDirecto(event) {
+function enviarPedidoWhatsAppDirecto(event) {
             event.preventDefault();
             if (!productoSeleccionado) return;
 
@@ -912,7 +911,7 @@
             mensaje += `🏷️ *Tipo:* ${productoSeleccionado.tipoTexto}\n`;
             mensaje += `📏 *Talla:* ${tallaNombre}\n`;
             mensaje += `🖼️ *Foto:* ${baseUrl}imagenes/${productoSeleccionado.imagen}\n`;
-
+            
             if (llevaDorsal) {
                 mensaje += `🔟 *Personalización:* Sí (+3€)\n`;
                 if (nombre) mensaje += `   - *Nombre:* ${nombre.toUpperCase()}\n`;
@@ -927,6 +926,8 @@
 
             const url = `https://wa.me/${TELEFONO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
             window.open(url, '_blank');
+
+            cerrarModal();
         }
 
         function cambiarPagina(dir) {
