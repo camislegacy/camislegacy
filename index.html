@@ -762,7 +762,7 @@
             const parche = document.getElementById('input-parche').value.trim();
             const precioFinal = document.getElementById('modal-precio-total').innerText;
 
-            // URL base fija y correcta para GitHub Pages
+            // URL base fija y correcta (sin duplicar carpetas)
             const baseUrl = "https://camislegacy.github.io/camislegacy/";
 
             let mensaje = `Hola CAMISLEGACY! Quiero confirmar este pedido:\n\n`;
@@ -771,6 +771,9 @@
             mensaje += `⚽ *Producto:* ${productoSeleccionado.titulo}\n`;
             mensaje += `🏷️ *Tipo:* ${productoSeleccionado.tipoTexto}\n`;
             mensaje += `📏 *Talla:* ${tallaNombre}\n`;
+            
+            // Corrección aplicada: se usa directamente baseUrl + productoSeleccionado.imagen 
+            // (ya que productoSeleccionado.imagen contiene la ruta correcta como "imagenes/camiseta_29.jpg")
             mensaje += `🖼️ *Foto:* ${baseUrl}${productoSeleccionado.imagen}\n`;
 
             if (llevaDorsal) {
