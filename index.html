@@ -296,7 +296,7 @@
                 <div class="flex flex-wrap gap-2" id="filtros-categorias">
                     <button onclick="filtrarCategoria('TODAS')" class="btn-cat bg-zinc-900 dark:bg-white text-white dark:text-black font-extrabold px-3 py-1.5 rounded-xl text-xs uppercase transition">Todas</button>
                     <button onclick="filtrarCategoria('CONCEPTOS')" class="btn-cat bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold px-3 py-1.5 rounded-xl text-xs uppercase border border-zinc-300 dark:border-zinc-700 transition">Conceptos / Colaboraciones (25€ + 3€ Envío)</button>
-                    <button onclick="filtrarCategoria('MANGA_LARGA')" class="btn-cat bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold px-3 py-1.5 rounded-xl text-xs uppercase border border-zinc-300 dark:border-zinc-700 transition">Manga Larga</button>
+                    <button onclick="filtrarCategoria('MANGA_LARGA')" class="btn-cat bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold px-3 py-1.5 rounded-xl text-xs uppercase border border-zinc-300 dark:border-zinc-700 transition">Manga Larga (25€)</button>
                     <button onclick="filtrarCategoria('CHAQUETAS')" class="btn-cat bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold px-3 py-1.5 rounded-xl text-xs uppercase border border-zinc-300 dark:border-zinc-700 transition">Chaquetas / Cortavientos</button>
                     <button onclick="filtrarCategoria('SHORTS')" class="btn-cat bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold px-3 py-1.5 rounded-xl text-xs uppercase border border-zinc-300 dark:border-zinc-700 transition">Pantalones Cortos</button>
                     <button onclick="filtrarCategoria('INFANTIL')" class="btn-cat bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold px-3 py-1.5 rounded-xl text-xs uppercase border border-zinc-300 dark:border-zinc-700 transition">Conjuntos Infantiles (25€ + 3€ Envío)</button>
@@ -517,6 +517,11 @@
             return t.includes('kids') || t.includes('baby') || t.includes('child') || t.includes('infantil') || t.includes('set kid');
         }
 
+        function esMangalarga(titulo) {
+            const t = (titulo || '').toLowerCase();
+            return t.includes('long sleeve') || t.includes('manga larga') || t.includes('long sleeved') || t.includes('long-sleeve');
+        }
+
         function calcularPrecioBase(titulo) {
             const t = (titulo || '').toLowerCase();
             if (esConceptoOCantante(t)) {
@@ -524,6 +529,9 @@
             }
             if (esInfantil(t)) {
                 return { precio: 25, tipo: "Conjunto Infantil (25.00€ + 3€ Envío)", envioExtra: true };
+            }
+            if (esMangalarga(t)) {
+                return { precio: 25, tipo: "Manga Larga (25.00€)", envioExtra: false };
             }
             if (t.includes('windbreaker') || t.includes('chaqueta') || t.includes('jacket') || t.includes('tracksuit')) {
                 return { precio: 45, tipo: "Chaqueta / Cortavientos (45.00€)", envioExtra: false };
@@ -579,7 +587,7 @@
                 if (categoriaActiva === 'CONCEPTOS') {
                     if (!esConceptoOCantante(titulo)) return false;
                 } else if (categoriaActiva === 'MANGA_LARGA') {
-                    if (!titulo.includes('long sleeve') && !titulo.includes('manga larga')) return false;
+                    if (!esMangalarga(titulo)) return false;
                 } else if (categoriaActiva === 'CHAQUETAS') {
                     if (!titulo.includes('windbreaker') && !titulo.includes('chaqueta') && !titulo.includes('jacket') && !titulo.includes('tracksuit')) return false;
                 } else if (categoriaActiva === 'SHORTS') {
